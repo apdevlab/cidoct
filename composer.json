@@ -1,0 +1,26 @@
+{
+	"name" : "apdevlab/cidoct",
+	"description" : "The sample project with CodeIgniter 3.0 framework with Doctrine ORM 2.5",
+	"version": "0.0.1",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Ahmad Permana",
+			"email": "apdevlab@gmail.com",
+			"role": "Developer"
+		}
+	],
+	"support": {
+		"source": "https://github.com/apdevlab/cidoct"
+	},
+	"require": {
+		"php": ">=5.4",
+		"doctrine/orm": "^2.5"
+	},
+	"require-dev": {
+		"mikey179/vfsStream": "1.1.*"
+	},
+	"config": {
+		"vendor-dir": "application/vendor"
+	}
+}
