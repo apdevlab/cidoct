@@ -4,17 +4,16 @@ namespace Entities;
 /**
  * @Entity @Table(name="product")
  **/
-class Product
-{
+class Product {
     /**
-     * @Id
-     * @Column(type="integer", nullable=false)
-     * @GeneratedValue(strategy="AUTO")
+     * @Id @Column(type="integer", nullable=false) @GeneratedValue(strategy="AUTO")
+     * @var int
      */
     protected $id;
 
     /**
      * @Column(type="string", length=80, nullable=false)
+     * @var string
      */
     protected $name;
 
