@@ -1,4 +1,5 @@
 <?php
+use Doctrine\Common\ClassLoader;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\Setup;
 
@@ -9,6 +10,9 @@ class Doctrine {
     {
         // load database configuration from CI
         require_once APPPATH.'config/database.php';
+
+        // register all entities class to the ClassLoader
+        (new ClassLoader('Entities', APPPATH.'models'))->register();
 
         $entityPath = array(APPPATH.'models/Entities');
         $proxyDir = APPPATH.'models/proxies';
