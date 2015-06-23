@@ -20,6 +20,7 @@ class Welcome extends MY_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		$products = $this->em->getRepository('Entities\Product')->findAll();
+		$this->load->view('welcome_message', array('products' => $products));
 	}
 }
