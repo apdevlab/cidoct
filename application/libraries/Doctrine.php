@@ -14,6 +14,9 @@ class Doctrine {
         // register all entities class to the ClassLoader
         (new ClassLoader('Entities', APPPATH.'models'))->register();
 
+        // register all repositories class to the ClassLoader
+        (new ClassLoader('Repositories', APPPATH.'models'))->register();
+
         $entityPath = array(APPPATH.'models/Entities');
         $proxyDir = APPPATH.'models/proxies';
         $isDevMode = ENVIRONMENT === 'development';

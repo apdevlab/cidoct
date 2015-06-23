@@ -2,7 +2,8 @@
 namespace Entities;
 
 /**
- * @Entity @Table(name="product")
+ * @Entity(repositoryClass="Repositories\ProductRepository")
+ * @Table(name="product")
  **/
 class Product {
     /**

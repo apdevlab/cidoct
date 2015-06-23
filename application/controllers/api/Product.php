@@ -2,8 +2,6 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 require APPPATH.'libraries/REST_Controller.php';
 
-use Doctrine\ORM\Query;
-
 class Product extends REST_Controller {
     private $em = NULL;
 
@@ -13,6 +11,7 @@ class Product extends REST_Controller {
 
         // uncomment this line if not using CI auto load feature
         //$this->load->library('doctrine');
+        
         $this->em = $this->doctrine->entityManager;
     }
 
@@ -23,19 +22,11 @@ class Product extends REST_Controller {
 
         if (!$this->get('id'))
         {
-            $products = $productRepository->createQueryBuilder('p')
-                ->select('p')
-                ->getQuery()
-                ->getArrayResult();
+            $products = $productRepository->getAllProductArrays();
         }
         else 
         {
-            $product = $productRepository->createQueryBuilder('p')
-                ->select('p')
-                ->where('p.id = :id')
-                ->setParameter('id', $this->get('id'))
-                ->getQuery()
-                ->getOneOrNullResult(Query::HYDRATE_ARRAY);
+            $product = $productRepository->getProductArrayById($this->get('id'));
             if ($product) $products[] = $product;
             else $this->response(NULL, 404);
         }
